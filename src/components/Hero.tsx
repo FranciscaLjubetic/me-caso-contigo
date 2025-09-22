@@ -1,38 +1,41 @@
 import Link from 'next/link'
 import { Calendar, Heart, Star } from 'lucide-react'
 import Logo from './Logo'
+import Button from './Button'
 
 export default function Hero() {
   return (
-    <section className="relative pt-16">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-10">
+    <section className="relative pt-4">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
         <div className="text-center">
           {/* Logo grande */}
-          <div className="mb-4">
+          <div className="mb-2">
             <Logo size="xl" className="mx-auto" />
           </div>
           
-          <h1 className="text-3xl md:text-3xl font-bold text-white mb-6">
+          <h1 className="text-2xl md:text-2xl font-bold text-white mb-4">
             Tu Día Perfecto
-            <span className="block text-pink-200">Empieza Aquí</span>
+            <span className=" text-pink-400"> Empieza Aquí</span>
           </h1>
-          <p className="text-xl text-gray-100 mb-8 max-w-3xl mx-auto">
-            Creamos experiencias únicas e inolvidables para tu boda, quinceaños y eventos especiales. 
+          <p className="textlg text-gray-100 mb-8 max-w-3xl mx-auto">
+            Creamos experiencias únicas e inolvidables para tu matrimonio y eventos especiales. 
             Cada detalle pensado con amor para hacer realidad el evento de tus sueños.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+          <div className="flex flex-col sm:flex-row gap-3 justify-center">
+            <Button 
               href="/agendar"
-              className="bg-rose-200 text-rose-900 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-rose-200 transition-colors"
+              variant="primary"
+              size="lg"
             >
-              Agendar Consulta Gratuita
-            </Link>
-            <Link 
+              Cotizar
+            </Button>
+            <Button 
               href="/galeria"
-              className="border-2 border-rose-200 text-rose-100 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-rose-300 hover:text-rose-900 transition-colors"
+              variant="secondary"
+              size="lg"
             >
               Ver Galería
-            </Link>
+            </Button>
           </div>
         </div>
 

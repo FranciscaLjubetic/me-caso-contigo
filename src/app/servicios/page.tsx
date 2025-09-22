@@ -1,145 +1,13 @@
-import { Heart, Users, Calendar, Camera, Utensils, Music, MapPin, Star } from 'lucide-react'
+import { Heart, Users, Calendar, Camera, Star } from 'lucide-react'
 import Link from 'next/link'
+import { services } from '@/lib/services-data'
+import { packages } from '@/lib/packages-data'
+import Button from '@/components/Button'
 
 export default function ServiciosPage() {
-  const services = [
-    {
-      icon: Heart,
-      title: 'Organización de Bodas',
-      description: 'Hacemos realidad la boda de tus sueños con planificación integral y atención a cada detalle.',
-      features: [
-        'Coordinación general del evento',
-        'Selección y coordinación de proveedores',
-        'Decoración temática personalizada',
-        'Protocolo de ceremonia y recepción',
-        'Timeline detallado del evento',
-        'Supervisión el día de la boda'
-      ],
-      price: 'Desde $150,000',
-      image: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=600&q=80'
-    },
-    {
-      icon: Users,
-      title: 'Quinceaños Únicos',
-      description: 'Celebra este momento tan especial con una fiesta inolvidable llena de magia y diversión.',
-      features: [
-        'Decoración temática personalizada',
-        'Protocolo de vals y ceremonia',
-        'Coordinación de DJ y música',
-        'Mesa de dulces y torta',
-        'Fotografía y video del evento',
-        'Animación y entretenimiento'
-      ],
-      price: 'Desde $80,000',
-      image: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=600&q=80'
-    },
-    {
-      icon: Utensils,
-      title: 'Catering Premium',
-      description: 'Menús exquisitos diseñados por chefs profesionales para deleitar a todos tus invitados.',
-      features: [
-        'Menús personalizados según preferencias',
-        'Opciones vegetarianas y veganas',
-        'Servicio de meseros profesional',
-        'Bebidas y cocktails incluidos',
-        'Montaje elegante de mesas',
-        'Servicio de barra libre'
-      ],
-      price: 'Desde $2,500 por persona',
-      image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80'
-    },
-    {
-      icon: Camera,
-      title: 'Fotografía y Video',
-      description: 'Capturamos cada momento especial con profesionalismo y creatividad artística.',
-      features: [
-        'Sesión de fotos pre-evento',
-        'Cobertura completa del evento',
-        'Video cinematográfico profesional',
-        'Entrega de fotos editadas',
-        'Album digital personalizado',
-        'Drone para tomas aéreas'
-      ],
-      price: 'Desde $45,000',
-      image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=600&q=80'
-    },
-    {
-      icon: Music,
-      title: 'Entretenimiento',
-      description: 'Música, sonido e iluminación profesional para mantener la energía durante toda la celebración.',
-      features: [
-        'DJ profesional especializado',
-        'Sistema de sonido de alta calidad',
-        'Iluminación LED especializada',
-        'Pista de baile portátil',
-        'Micrófono inalámbrico',
-        'Música personalizada según gustos'
-      ],
-      price: 'Desde $35,000',
-      image: 'https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=600&q=80'
-    },
-    {
-      icon: MapPin,
-      title: 'Espacios y Venues',
-      description: 'Selección de los mejores espacios para tu evento, desde jardines hasta salones elegantes.',
-      features: [
-        'Jardines para ceremonias al aire libre',
-        'Salones elegantes para recepciones',
-        'Terrazas con vistas panorámicas',
-        'Espacios históricos únicos',
-        'Coordinación con el venue',
-        'Visitas guiadas a espacios'
-      ],
-      price: 'Consultar disponibilidad',
-      image: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=600&q=80'
-    }
-  ]
-
-  const packages = [
-    {
-      name: 'Paquete Básico',
-      description: 'Perfecto para eventos íntimos',
-      price: '$120,000',
-      features: [
-        'Coordinación general',
-        'Decoración básica',
-        'Catering para 50 personas',
-        'DJ por 6 horas',
-        'Fotografía básica'
-      ]
-    },
-    {
-      name: 'Paquete Premium',
-      description: 'La opción más popular',
-      price: '$250,000',
-      features: [
-        'Coordinación integral',
-        'Decoración temática completa',
-        'Catering gourmet para 100 personas',
-        'DJ + iluminación profesional',
-        'Fotografía y video completo',
-        'Flores y centros de mesa'
-      ],
-      popular: true
-    },
-    {
-      name: 'Paquete Luxury',
-      description: 'Experiencia premium total',
-      price: '$450,000',
-      features: [
-        'Coordinación VIP completa',
-        'Decoración de lujo personalizada',
-        'Catering premium para 150 personas',
-        'Entretenimiento completo',
-        'Fotografía + video cinematográfico',
-        'Transporte y hospedaje coordinado',
-        'Wedding planner dedicado'
-      ]
-    }
-  ]
 
   return (
-    <div className="min-h-screen bg-gray-50 pt-16">
+    <div className="min-h-screen bg-gray-50 pt-0">
       {/* Hero Section */}
     <section className="bg-gradient-to-br from-[#ff6b81] to-purple-600 text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -191,12 +59,13 @@ export default function ServiciosPage() {
                   </ul>
                   <div className="flex justify-between items-center">
                     <span className="text-2xl font-bold text-pink-600">{service.price}</span>
-                    <Link 
+                    <Button 
                       href="/agendar"
-                      className="bg-[#ff6b81] text-white px-4 py-2 rounded-lg hover:bg-pink-600 transition-colors"
+                      variant="primary"
+                      size="sm"
                     >
                       Consultar
-                    </Link>
+                    </Button>
                   </div>
                 </div>
               </div>
@@ -242,28 +111,26 @@ export default function ServiciosPage() {
                 <div className="text-4xl font-bold mb-6">
                   {pkg.price}
                 </div>
-                <ul className="space-y-3 mb-8">
+                <ul className="space-y-2 mb-8">
                   {pkg.features.map((feature, idx) => (
                     <li key={idx} className="flex items-center">
                       <span className={`w-2 h-2 rounded-full mr-3 ${
                         pkg.popular ? 'bg-white' : 'bg-pink-500'
                       }`}></span>
-                      <span className={pkg.popular ? 'text-pink-100' : 'text-gray-700'}>
+                      <span className={`text-sm ${pkg.popular ? 'text-pink-100' : 'text-gray-700'}`}>
                         {feature}
                       </span>
                     </li>
                   ))}
                 </ul>
-                <Link 
+                <Button 
                   href="/agendar"
-                  className={`block w-full text-center py-3 px-6 rounded-lg font-semibold transition-colors ${
-                    pkg.popular 
-                      ? 'bg-white text-pink-600 hover:bg-gray-100' 
-                      : 'bg-[#ff6b81] text-white hover:bg-pink-600'
-                  }`}
+                  variant={pkg.popular ? "secondary" : "primary"}
+                  size="md"
+                  className="w-full"
                 >
                   Seleccionar Paquete
-                </Link>
+                </Button>
               </div>
             ))}
           </div>
@@ -322,21 +189,23 @@ export default function ServiciosPage() {
             ¿Listo para planificar tu evento soñado?
           </h2>
           <p className="text-xl mb-8 opacity-90">
-            Agenda una consulta gratuita y conversemos sobre cómo hacer realidad la celebración perfecta.
+            Contacta con nosotros y conversemos sobre cómo hacer realidad la celebración perfecta.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link 
+            <Button 
               href="/agendar"
-              className="bg-white text-pink-600 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-gray-100 transition-colors"
+              variant="secondary"
+              size="lg"
             >
-              Agendar Consulta Gratuita
-            </Link>
-            <Link 
+              Cotiza con nosotros
+            </Button>
+            <Button 
               href="/galeria"
-              className="border-2 border-white text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-white hover:text-pink-600 transition-colors"
+              variant="secondary"
+              size="lg"
             >
               Ver Galería
-            </Link>
+            </Button>
           </div>
         </div>
       </section>

@@ -9,12 +9,6 @@ export default function Services() {
       features: ['Coordinación general', 'Decoración temática', 'Protocolo de ceremonia', 'Timeline detallado']
     },
     {
-      icon: Camera,
-      title: 'Quinceaños Únicos',
-      description: 'Celebra este momento especial con una fiesta inolvidable. Desde la temática hasta cada detalle de la celebración.',
-      features: ['Decoración personalizada', 'Protocolo de vals', 'Coordinación de DJ', 'Mesa de dulces']
-    },
-    {
       icon: Utensils,
       title: 'Catering Premium',
       description: 'Menús diseñados especialmente para tu evento. Desde cenas formales hasta cocktails casuales.',

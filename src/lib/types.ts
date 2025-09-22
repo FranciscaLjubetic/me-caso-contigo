@@ -12,7 +12,7 @@ export interface BookedDate {
   id: string
   date: Date
   clientName: string
-  eventType: 'boda' | 'quinceaños' | 'bautizo' | 'comunion' | 'otro'
+  eventType: 'tradicional_liviano' | 'tradicional_equilibrado' | 'tradicional_peso_pesado' | 'coctel_liviano' | 'coctel_del_mar' | 'coctel_peso_pesado' | 'otro'
 }
 
 export interface GalleryImage {
@@ -20,4 +20,22 @@ export interface GalleryImage {
   src: string
   alt: string
   category: 'bodas' | 'decoracion' | 'catering' | 'venues'
+}
+
+export interface Service {
+  icon: any // Lucide React icon component
+  title: string
+  description: string
+  features: string[]
+  price: string
+  image: string
+}
+
+export interface Package {
+  name: string
+  description: string
+  price: string
+  features: string[]
+  popular?: boolean
+  category?: 'tradicional' | 'coctel'
 }

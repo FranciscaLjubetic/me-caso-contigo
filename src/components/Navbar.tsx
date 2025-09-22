@@ -4,6 +4,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { Menu, X } from 'lucide-react'
 import Logo from './Logo'
+import Button from './Button'
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -22,34 +23,35 @@ export default function Navbar() {
             <div className="ml-10 flex items-baseline space-x-4">
               <Link
                 href="/"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-white hover:text-gray-300 px-3 py-2 rounded-full text-sm font-medium transition-colors"
               >
                 Inicio
               </Link>
               <Link
                 href="/servicios"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-white hover:text-gray-300 px-3 py-2 rounded-full text-sm font-medium transition-colors"
               >
                 Servicios
               </Link>
               <Link
                 href="/galeria"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-white hover:text-gray-300 px-3 py-2 rounded-full text-sm font-medium transition-colors"
               >
                 Galería
               </Link>
               <Link
                 href="/fechas-disponibles"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-md text-sm font-medium transition-colors"
+                className="text-white hover:text-gray-300 px-3 py-2 rounded-full text-sm font-medium transition-colors"
               >
                 Fechas Disponibles
               </Link>
-              <Link
+              <Button
                 href="/agendar"
-                className="bg-rose-300 text-rose-900 hover:bg-rose-200 px-4 py-2 rounded-md text-sm font-medium transition-colors"
+                variant="secondary"
+                size="sm"
               >
-                Agendar Cita
-              </Link>
+                Cotiza ya!
+              </Button>
             </div>
           </div>
 
@@ -68,39 +70,41 @@ export default function Navbar() {
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 bg-slate-800/40 border-t border-gray-600/50 backdrop-blur-sm">
               <Link
                 href="/"
-                className="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:text-gray-300 block px-3 py-2 rounded-full text-base font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 Inicio
               </Link>
               <Link
                 href="/servicios"
-                className="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:text-gray-300 block px-3 py-2 rounded-full text-base font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 Servicios
               </Link>
               <Link
                 href="/galeria"
-                className="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:text-gray-300 block px-3 py-2 rounded-full text-base font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 Galería
               </Link>
               <Link
                 href="/fechas-disponibles"
-                className="text-white hover:text-gray-300 block px-3 py-2 rounded-md text-base font-medium"
+                className="text-white hover:text-gray-300 block px-3 py-2 rounded-full text-base font-medium"
                 onClick={() => setIsOpen(false)}
               >
                 Fechas Disponibles
               </Link>
-              <Link
+              <Button
                 href="/agendar"
-                className="bg-rose-300 text-rose-900 hover:bg-rose-200 block px-3 py-2 rounded-md text-base font-medium text-center"
+                variant="secondary"
+                size="md"
                 onClick={() => setIsOpen(false)}
+                className="block text-center"
               >
-                Agendar Cita
-              </Link>
+                Contactános
+              </Button>
             </div>
           </div>
         )}

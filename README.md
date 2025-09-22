@@ -1,6 +1,6 @@
 # Me Caso Contigo - Sitio Web de Eventos
 
-Un sitio web moderno y elegante para la organización de bodas, quinceaños y eventos especiales.
+Un sitio web moderno y elegante para la organización de matrimonios y eventos especiales.
 
 ## Características Principales
 

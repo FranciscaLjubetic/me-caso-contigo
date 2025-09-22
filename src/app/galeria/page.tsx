@@ -4,260 +4,14 @@ import { useState } from 'react'
 import Image from 'next/image'
 import { X, ChevronLeft, ChevronRight } from 'lucide-react'
 import { GalleryImage } from '@/lib/types'
-
-// Datos de ejemplo para la galería (en producción vendrían de una API)
-const galleryImages: GalleryImage[] = [
-  // Bodas
-  {
-    id: '1',
-    src: 'https://images.unsplash.com/photo-1519741497674-611481863552?w=800&q=80',
-    alt: 'Ceremonia de boda elegante',
-    category: 'bodas'
-  },
-  {
-    id: '2',
-    src: 'https://images.unsplash.com/photo-1583939003579-730e3918a45a?w=800&q=80',
-    alt: 'Mesa de boda decorada',
-    category: 'bodas'
-  },
-  {
-    id: '3',
-    src: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?w=800&q=80',
-    alt: 'Pareja de novios',
-    category: 'bodas'
-  },
-  
-  // Decoración
-  {
-    id: '4',
-    src: 'https://images.unsplash.com/photo-1478146896981-b80fe463b330?w=800&q=80',
-    alt: 'Decoración floral elegante',
-    category: 'decoracion'
-  },
-  {
-    id: '5',
-    src: 'https://images.unsplash.com/photo-1464366400600-7168b8af9bc3?w=800&q=80',
-    alt: 'Centro de mesa con velas',
-    category: 'decoracion'
-  },
-  {
-    id: '6',
-    src: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?w=800&q=80',
-    alt: 'Arreglo floral para evento',
-    category: 'decoracion'
-  },
-  
-  // Catering
-  {
-    id: '7',
-    src: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=800&q=80',
-    alt: 'Mesa de catering gourmet',
-    category: 'catering'
-  },
-  {
-    id: '8',
-    src: 'https://images.unsplash.com/photo-1516865131505-4dabf2efc692?w=800&q=80',
-    alt: 'Platos de alta cocina',
-    category: 'catering'
-  },
-  {
-    id: '9',
-    src: 'https://images.unsplash.com/photo-1551218808-94e220e084d2?w=800&q=80',
-    alt: 'Mesa de dulces para evento',
-    category: 'catering'
-  },
-  
-  // Venues
-  {
-    id: '10',
-    src: 'https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=800&q=80',
-    alt: 'Salón de eventos elegante',
-    category: 'venues'
-  },
-  {
-    id: '11',
-    src: 'https://images.unsplash.com/photo-1464207687429-7505649dae38?w=800&q=80',
-    alt: 'Jardín para ceremonia',
-    category: 'venues'
-  },
-  {
-    id: '12',
-    src: 'https://images.unsplash.com/photo-1505236858219-8359eb29e329?w=800&q=80',
-    alt: 'Terraza con vista panorámica',
-    category: 'venues'
-  },
-  
-  // Fotos reales de eventos
-  {
-    id: '13',
-    src: '/Bodas de Oro 23 12 2017-107.jpg',
-    alt: 'Boda de Oro elegante',
-    category: 'bodas'
-  },
-  {
-    id: '14',
-    src: '/20161001_130315_edited.jpg',
-    alt: 'Celebración de matrimonio',
-    category: 'bodas'
-  },
-  {
-    id: '15',
-    src: '/20180310_190425.jpg',
-    alt: 'Mesa de boda decorada',
-    category: 'decoracion'
-  },
-  {
-    id: '16',
-    src: '/53723621_162714281312773_6833258771406389248_n.jpg',
-    alt: 'Decoración floral para evento',
-    category: 'decoracion'
-  },
-  {
-    id: '17',
-    src: '/IMG_20190303_115626 (1).jpg',
-    alt: 'Setup de evento',
-    category: 'venues'
-  },
-  {
-    id: '18',
-    src: '/IMG_20190303_115626.jpg',
-    alt: 'Preparación de salón',
-    category: 'venues'
-  },
-  {
-    id: '19',
-    src: '/IMG_20190303_115745.jpg',
-    alt: 'Decoración de mesa',
-    category: 'decoracion'
-  },
-  {
-    id: '20',
-    src: '/IMG_20190303_120526.jpg',
-    alt: 'Arreglo floral central',
-    category: 'decoracion'
-  },
-  {
-    id: '21',
-    src: '/IMG_20190303_140245.jpg',
-    alt: 'Mesa de catering',
-    category: 'catering'
-  },
-  {
-    id: '22',
-    src: '/IMG-20181014-WA0000.jpg',
-    alt: 'Evento corporativo',
-    category: 'venues'
-  },
-  {
-    id: '23',
-    src: '/IMG-20190209-WA0011.jpg',
-    alt: 'Decoración de boda',
-    category: 'bodas'
-  },
-  {
-    id: '24',
-    src: '/IMG-20190209-WA0014.jpg',
-    alt: 'Mesa nupcial decorada',
-    category: 'bodas'
-  },
-  {
-    id: '25',
-    src: '/t30_82071 (1).jpg',
-    alt: 'Celebración especial',
-    category: 'bodas'
-  },
-  {
-    id: '26',
-    src: '/WhatsApp Image 2018-07-22 at 15.43.30 (2).jpeg',
-    alt: 'Evento de verano',
-    category: 'venues'
-  },
-  {
-    id: '27',
-    src: '/WhatsApp Image 2018-11-11 at 12.34.19 (1).jpeg',
-    alt: 'Decoración otoñal',
-    category: 'decoracion'
-  },
-  {
-    id: '28',
-    src: '/WhatsApp Image 2018-11-11 at 12.34.19.jpeg',
-    alt: 'Setup de mesa elegante',
-    category: 'decoracion'
-  },
-  {
-    id: '29',
-    src: '/WhatsApp Image 2019-01-27 at 13.50.19.jpeg',
-    alt: 'Evento de enero',
-    category: 'venues'
-  },
-  {
-    id: '30',
-    src: '/WhatsApp Image 2019-01-27 at 13.51.51.jpeg',
-    alt: 'Decoración de temporada',
-    category: 'decoracion'
-  },
-  {
-    id: '31',
-    src: '/WhatsApp Image 2019-03-17 at 19.23.44.jpeg',
-    alt: 'Celebración nocturna',
-    category: 'bodas'
-  },
-  {
-    id: '32',
-    src: '/0B6kGPIBZlePHRWJPQ3RPbmlxZDQ.jpeg',
-    alt: 'Evento especial',
-    category: 'venues'
-  },
-  {
-    id: '33',
-    src: '/club_suizo_07_07_2015.webp',
-    alt: 'Evento en Club Suizo',
-    category: 'venues'
-  },
-  {
-    id: '34',
-    src: '/club_suizo_tati_17_07_2017.webp',
-    alt: 'Celebración Club Suizo 2017',
-    category: 'bodas'
-  },
-  {
-    id: '35',
-    src: '/club_suizo_tati_17_07_2017_2.webp',
-    alt: 'Decoración Club Suizo',
-    category: 'decoracion'
-  },
-  {
-    id: '36',
-    src: '/club_suizo_yasutaro_11_02_2018.webp',
-    alt: 'Evento Yasutaro 2018',
-    category: 'bodas'
-  },
-  {
-    id: '37',
-    src: '/altar.png',
-    alt: 'Decoración de altar',
-    category: 'decoracion'
-  },
-  {
-    id: '38',
-    src: '/coctel.png',
-    alt: 'Mesa de cóctel',
-    category: 'catering'
-  },
-  {
-    id: '39',
-    src: '/codegua.png',
-    alt: 'Evento en Codegua',
-    category: 'venues'
-  }
-]
+import { galleryImages } from '@/lib/gallery-data'
+import Button from '@/components/Button'
 
 const categories = [
   { key: 'all', label: 'Todos' },
   { key: 'bodas', label: 'Bodas' },
   { key: 'decoracion', label: 'Decoración' },
-  { key: 'catering', label: 'Catering' },
-  { key: 'venues', label: 'Espacios' }
+  { key: 'catering', label: 'Catering' }
 ]
 
 export default function GaleriaPage() {
@@ -424,18 +178,20 @@ export default function GaleriaPage() {
             la celebración de tus sueños.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
+            <Button
               href="/agendar"
-              className="bg-pink-500 text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-600 transition-colors"
+              variant="primary"
+              size="lg"
             >
-              Agendar Consulta
-            </a>
-            <a
+              Cotiza Ya!
+            </Button>
+            <Button
               href="/fechas-disponibles"
-              className="border-2 border-pink-500 text-pink-500 px-8 py-3 rounded-lg text-lg font-semibold hover:bg-pink-500 hover:text-white transition-colors"
+              variant="secondary"
+              size="lg"
             >
               Ver Fechas Disponibles
-            </a>
+            </Button>
           </div>
         </div>
       </div>

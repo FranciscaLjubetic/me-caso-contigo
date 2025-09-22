@@ -5,6 +5,7 @@ import { Calendar, Clock, Users, MapPin } from 'lucide-react'
 import { format, addDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { BookedDate } from '@/lib/types'
+import Button from '@/components/Button'
 
 // Datos de ejemplo de fechas ocupadas
 const bookedDates: BookedDate[] = [
@@ -12,53 +13,57 @@ const bookedDates: BookedDate[] = [
     id: '1',
     date: new Date(2025, 9, 25), // 25 de octubre 2025
     clientName: 'María y Carlos',
-    eventType: 'boda'
+    eventType: 'tradicional_equilibrado'
   },
   {
     id: '2',
     date: new Date(2025, 10, 8), // 8 de noviembre 2025
-    clientName: 'Familia Rodríguez',
-    eventType: 'quinceaños'
+    clientName: 'Ana y Roberto',
+    eventType: 'coctel_del_mar'
   },
   {
     id: '3',
     date: new Date(2025, 10, 15), // 15 de noviembre 2025
-    clientName: 'Ana y Roberto',
-    eventType: 'boda'
+    clientName: 'Carmen y Diego',
+    eventType: 'tradicional_peso_pesado'
   },
   {
     id: '4',
     date: new Date(2025, 10, 22), // 22 de noviembre 2025
-    clientName: 'Familia Gómez',
-    eventType: 'bautizo'
+    clientName: 'Patricia y Andrés',
+    eventType: 'coctel_liviano'
   },
   {
     id: '5',
     date: new Date(2025, 11, 6), // 6 de diciembre 2025
     clientName: 'Laura y Miguel',
-    eventType: 'boda'
+    eventType: 'tradicional_liviano'
   },
   {
     id: '6',
     date: new Date(2025, 11, 13), // 13 de diciembre 2025
-    clientName: 'Sofía',
-    eventType: 'quinceaños'
+    clientName: 'Valentina y Sebastián',
+    eventType: 'coctel_peso_pesado'
   }
 ]
 
 const eventTypeColors = {
-  'boda': 'bg-pink-100 text-pink-800 border-pink-200',
-  'quinceaños': 'bg-purple-100 text-purple-800 border-purple-200',
-  'bautizo': 'bg-blue-100 text-blue-800 border-blue-200',
-  'comunion': 'bg-green-100 text-green-800 border-green-200',
+  'tradicional_liviano': 'bg-pink-100 text-pink-800 border-pink-200',
+  'tradicional_equilibrado': 'bg-pink-200 text-pink-900 border-pink-300',
+  'tradicional_peso_pesado': 'bg-pink-300 text-pink-900 border-pink-400',
+  'coctel_liviano': 'bg-purple-100 text-purple-800 border-purple-200',
+  'coctel_del_mar': 'bg-purple-200 text-purple-900 border-purple-300',
+  'coctel_peso_pesado': 'bg-purple-300 text-purple-900 border-purple-400',
   'otro': 'bg-gray-100 text-gray-800 border-gray-200'
 }
 
 const eventTypeLabels = {
-  'boda': 'Boda',
-  'quinceaños': 'Quinceaños',
-  'bautizo': 'Bautizo',
-  'comunion': 'Primera Comunión',
+  'tradicional_liviano': 'Tradicional Liviano',
+  'tradicional_equilibrado': 'Tradicional Equilibrado',
+  'tradicional_peso_pesado': 'Tradicional Peso Pesado',
+  'coctel_liviano': 'Cóctel Liviano',
+  'coctel_del_mar': 'Cóctel del Mar',
+  'coctel_peso_pesado': 'Cóctel Peso Pesado',
   'otro': 'Otro evento'
 }
 
@@ -222,14 +227,15 @@ export default function FechasDisponiblesPage() {
                 ¿Encontraste tu fecha ideal?
               </h3>
               <p className="mb-4 opacity-90">
-                Agenda una consulta gratuita y asegura tu fecha especial.
+                Contacta con nosotros y asegura tu fecha especial.
               </p>
-              <a
+              <Button
                 href="/agendar"
-                className="bg-white text-pink-600 px-4 py-2 rounded-lg font-semibold hover:bg-gray-100 transition-colors inline-block"
+                variant="secondary"
+                size="sm"
               >
-                Agendar Consulta
-              </a>
+                Cotiza ya!
+              </Button>
             </div>
 
             {/* Estadísticas */}
