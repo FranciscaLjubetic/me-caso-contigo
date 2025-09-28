@@ -58,7 +58,7 @@ export default function ServiciosPage() {
                     ))}
                   </ul>
                   <div className="flex justify-between items-center">
-                    <span className="text-2xl font-bold text-pink-600">{service.price}</span>
+                    <span className="text-xl font-bold text-pink-600">{service.price}</span>
                     <Button 
                       href="/agendar"
                       variant="primary"
@@ -74,68 +74,6 @@ export default function ServiciosPage() {
         </div>
       </section>
 
-      {/* Paquetes */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">
-              Paquetes Integrales
-            </h2>
-            <p className="text-xl text-gray-600">
-              Opciones completas diseñadas para diferentes necesidades y presupuestos
-            </p>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-8">
-            {packages.map((pkg, index) => (
-              <div 
-                key={index} 
-                className={`rounded-lg p-8 transition-transform hover:scale-105 ${
-                  pkg.popular 
-                    ? 'bg-gradient-to-br from-pink-500 to-purple-600 text-white ring-4 ring-pink-200' 
-                    : 'bg-gray-50 border-2 border-gray-200'
-                }`}
-              >
-                {pkg.popular && (
-                  <div className="flex items-center justify-center mb-4">
-                    <Star className="h-5 w-5 mr-1" />
-                    <span className="text-sm font-semibold">MÁS POPULAR</span>
-                  </div>
-                )}
-                <h3 className={`text-2xl font-bold mb-2 ${pkg.popular ? 'text-white' : 'text-gray-800'}`}>
-                  {pkg.name}
-                </h3>
-                <p className={`mb-6 ${pkg.popular ? 'text-pink-100' : 'text-gray-600'}`}>
-                  {pkg.description}
-                </p>
-                <div className="text-4xl font-bold mb-6">
-                  {pkg.price}
-                </div>
-                <ul className="space-y-2 mb-8">
-                  {pkg.features.map((feature, idx) => (
-                    <li key={idx} className="flex items-center">
-                      <span className={`w-2 h-2 rounded-full mr-3 ${
-                        pkg.popular ? 'bg-white' : 'bg-pink-500'
-                      }`}></span>
-                      <span className={`text-sm ${pkg.popular ? 'text-pink-100' : 'text-gray-700'}`}>
-                        {feature}
-                      </span>
-                    </li>
-                  ))}
-                </ul>
-                <Button 
-                  href="/agendar"
-                  variant={pkg.popular ? "secondary" : "primary"}
-                  size="md"
-                  className="w-full"
-                >
-                  Seleccionar Paquete
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Por qué elegirnos */}
       <section className="py-20 bg-gray-50">
