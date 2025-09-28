@@ -23,7 +23,7 @@ export default function Services() {
   ]
 
   return (
-    <section className="py-20 bg-gradient-to-br from-slate-700/25 via-gray-700/30 to-stone-700/35">
+    <section className="py-20 bg-gradient-to-br from-[#141414]/25 to-[#242424]/35">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
@@ -36,7 +36,7 @@ export default function Services() {
 
         <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
-            <div key={index} className="bg-slate-800/30 backdrop-blur-sm border border-gray-600/40 rounded-lg p-6 hover:shadow-lg transition-shadow">
+            <div key={index} className="backdrop-blur-sm border border-gray-600/40 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <service.icon className="h-12 w-12 text-rose-300 mb-4" />
               <h3 className="text-xl font-semibold mb-3 text-white">{service.title}</h3>
               <p className="text-gray-200 mb-4">{service.description}</p>

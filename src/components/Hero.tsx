@@ -40,21 +40,21 @@ export default function Hero() {
 
         {/* Features */}
         <div className="mt-20 grid md:grid-cols-3 gap-8">
-          <div className="text-center p-6 rounded-lg shadow-lg">
+          <div className="text-center p-6 rounded-lg shadow-lg border border-gray-600/40">
             <Calendar className="h-12 w-12 text-rose-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2 text-white">Planificación Personalizada</h3>
             <p className="text-gray-200">
               Agenda una cita y trabajemos juntos para crear el evento perfecto
             </p>
           </div>
-          <div className="text-center p-6 rounded-lg shadow-lg">
+          <div className="text-center p-6 rounded-lg shadow-lg border border-gray-600/40">
             <Heart className="h-12 w-12 text-rose-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2 text-white">Atención al Detalle</h3>
             <p className="text-gray-200">
               Cuidamos cada aspecto de tu evento para que sea memorable
             </p>
           </div>
-          <div className="text-center p-6 rounded-lg shadow-lg">
+          <div className="text-center p-6 rounded-lg shadow-lg border border-gray-600/40">
             <Star className="h-12 w-12 text-rose-300 mx-auto mb-4" />
             <h3 className="text-xl font-semibold mb-2 text-white">Experiencia Comprobada</h3>
             <p className="text-gray-200">
