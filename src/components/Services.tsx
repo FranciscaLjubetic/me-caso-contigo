@@ -1,4 +1,4 @@
-import { Heart, Camera, Utensils, Music } from 'lucide-react'
+import { Heart, Utensils, Music } from 'lucide-react'
 
 export default function Services() {
   const services = [

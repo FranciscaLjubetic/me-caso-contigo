@@ -22,8 +22,10 @@ export interface GalleryImage {
   category: 'bodas' | 'decoracion' | 'catering' | 'venues'
 }
 
+import type { LucideIcon } from 'lucide-react'
+
 export interface Service {
-  icon: any // Lucide React icon component
+  icon: LucideIcon
   title: string
   description: string
   features: string[]

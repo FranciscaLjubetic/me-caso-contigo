@@ -1,10 +1,11 @@
 'use client'
 
+import Image from 'next/image'
+
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg' | 'xl'
   className?: string
 }
-
 export default function Logo({ size = 'md', className = '' }: LogoProps) {
   const sizes = {
     sm: 'w-12 h-12',
@@ -14,8 +15,14 @@ export default function Logo({ size = 'md', className = '' }: LogoProps) {
   }
 
   return (
-    <div className={`${sizes[size]} ${className} flex items-center justify-center`}>
-      <img src="/Logo2_blanco.svg" alt="" />
+    <div className={`${sizes[size]} ${className} relative flex items-center justify-center`}>
+      <Image
+        src="/Logo2_blanco.svg"
+        alt="Me Caso Contigo"
+        fill
+        className="object-contain"
+        priority
+      />
     </div>
   )
 }

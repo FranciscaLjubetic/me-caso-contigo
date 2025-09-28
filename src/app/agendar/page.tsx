@@ -4,7 +4,7 @@ import { useState } from 'react'
 import DatePicker from 'react-datepicker'
 import { format, addDays, isWeekend } from 'date-fns'
 import { es } from 'date-fns/locale'
-import { Calendar, Clock, User, Mail, Phone, MessageSquare } from 'lucide-react'
+import { Calendar, Clock, User } from 'lucide-react'
 import "react-datepicker/dist/react-datepicker.css"
 import Button from '@/components/Button'
 

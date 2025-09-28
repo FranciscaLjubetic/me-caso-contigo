@@ -1,4 +1,3 @@
-import Link from 'next/link'
 import { Calendar, Heart, Star } from 'lucide-react'
 import Logo from './Logo'
 import Button from './Button'

@@ -1,8 +1,8 @@
 'use client'
 
 import { useState } from 'react'
-import { Calendar, Clock, Users, MapPin } from 'lucide-react'
-import { format, addDays, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from 'date-fns'
+import { Calendar, Clock } from 'lucide-react'
+import { format, startOfMonth, endOfMonth, eachDayOfInterval, isSameDay, isToday } from 'date-fns'
 import { es } from 'date-fns/locale'
 import { BookedDate } from '@/lib/types'
 import Button from '@/components/Button'
@@ -80,11 +80,6 @@ export default function FechasDisponiblesPage() {
     return bookedDates.some(bookedDate => isSameDay(bookedDate.date, date))
   }
 
-  // Obtener evento de una fecha específica
-  const getEventForDate = (date: Date) => {
-    return bookedDates.find(bookedDate => isSameDay(bookedDate.date, date))
-  }
-
   // Navegar entre meses
   const goToPreviousMonth = () => {
     setCurrentDate(new Date(currentDate.getFullYear(), currentDate.getMonth() - 1))
@@ -149,7 +144,6 @@ export default function FechasDisponiblesPage() {
                 {/* Días del mes */}
                 {monthDays.map((day) => {
                   const isBooked = isDateBooked(day)
-                  const event = getEventForDate(day)
                   const isTodayDate = isToday(day)
                   
                   return (
