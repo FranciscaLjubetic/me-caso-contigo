@@ -5,20 +5,20 @@ export default function Services() {
     {
       icon: Heart,
       title: 'Organización de Bodas',
-      description: 'Planificación completa de tu boda desde la ceremonia hasta la recepción. Coordinación de proveedores, decoración y timeline del evento.',
-      features: ['Coordinación general', 'Decoración temática', 'Protocolo de ceremonia', 'Timeline detallado']
+      description: 'Planificación de tu boda desde la ceremonia hasta la fiesta.',
+      features: ['Coordinación general', 'Gastronomía', 'Ambientación', 'Servicio', 'Timeline detallado']
     },
     {
       icon: Utensils,
       title: 'Catering Premium',
       description: 'Menús diseñados especialmente para tu evento. Desde cenas formales hasta cocktails casuales.',
-      features: ['Menús personalizados', 'Servicio profesional', 'Bebidas incluidas', 'Opciones vegetarianas']
+      features: ['Menús personalizados', 'Servicio profesional', 'Opciones especiales']
     },
     {
       icon: Music,
       title: 'Entretenimiento',
-      description: 'Música, animación y entretenimiento para mantener a tus invitados disfrutando toda la noche.',
-      features: ['DJ profesional', 'Sonido e iluminación', 'Animación', 'Pista de baile']
+      description: 'Música e Ambientación para darle a tus invitados toda una experiencia.',
+      features: ['DJ', 'iluminación', 'Ambientación', 'Pista de baile']
     }
   ]
 
@@ -34,7 +34,7 @@ export default function Services() {
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-3 lg:grid-cols-3 gap-6">
           {services.map((service, index) => (
             <div key={index} className="bg-slate-800/30 backdrop-blur-sm border border-gray-600/40 rounded-lg p-6 hover:shadow-lg transition-shadow">
               <service.icon className="h-12 w-12 text-rose-300 mb-4" />
