@@ -216,7 +216,7 @@ export default function FechasDisponiblesPage() {
             </div>
 
             {/* CTA */}
-            <div className="bg-gradient-to-br from-[#ff6b81] to-purple-600 rounded-lg p-6 text-white">
+            <div className="gradient-bg rounded-lg p-6 text-white">
               <h3 className="text-xl font-semibold mb-2">
                 ¿Encontraste tu fecha ideal?
               </h3>
@@ -225,7 +225,7 @@ export default function FechasDisponiblesPage() {
               </p>
               <Button
                 href="/agendar"
-                variant="secondary"
+                variant="outlined"
                 size="sm"
               >
                 Cotiza ya!

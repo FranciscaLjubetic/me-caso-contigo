@@ -23,14 +23,14 @@ export default function Hero() {
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <Button 
               href="/agendar"
-              variant="primary"
+              variant="solid"
               size="lg"
             >
               Cotizar
             </Button>
             <Button 
               href="/galeria"
-              variant="secondary"
+              variant="outlined"
               size="lg"
             >
               Ver Galería

@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 interface ButtonProps {
   children: React.ReactNode
-  variant?: 'primary' | 'secondary'
+  variant?: 'solid' | 'outlined'
   size?: 'sm' | 'md' | 'lg'
   href?: string
   onClick?: () => void
@@ -15,7 +15,7 @@ interface ButtonProps {
 
 const Button: React.FC<ButtonProps> = ({
   children,
-  variant = 'primary',
+  variant = 'solid',
   size = 'md',
   href,
   onClick,
@@ -28,9 +28,9 @@ const Button: React.FC<ButtonProps> = ({
   const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-full transition-all transform hover:scale-105 focus:outline-none disabled:opacity-50 disabled:cursor-not-allowed disabled:transform-none'
   
   // Variantes de color
-  const variantClasses = {
-    primary: 'bg-gradient-to-r from-pink-500 to-purple-600 text-white hover:from-pink-600 hover:to-purple-700 focus:ring-pink-500',
-    secondary: 'bg-gradient-to-r from-pink-300 to-purple-300 text-gray-700 hover:from-pink-300 hover:to-purple-300 focus:ring-pink-300'
+  const variantClasses: Record<'solid' | 'outlined', string> = {
+    solid: 'bg-pink-500 text-white hover:opacity-90 focus:ring-pink-500',
+    outlined: 'bg-pink-500 text-white border-2 border-pink-500 bg-transparent hover:bg-pink-500 hover:text-white focus:ring-pink-500'
   }
   
   // Tamaños

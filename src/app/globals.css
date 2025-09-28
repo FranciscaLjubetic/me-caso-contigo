@@ -24,3 +24,24 @@ body {
   color: var(--foreground);
   font-family: "Libre Baskerville", Garamond, "Times New Roman", serif;
 }
+
+/* Custom gradient classes */
+
+.gradient-bg {
+  background: linear-gradient(to top right, #C315D6, #FC0339, #FC0339, #f59d7a);
+}
+
+
+.gradient-text {
+  background: linear-gradient(to right, #C315D6, #FC0339, #FC0339,#FC0339, #f59d7a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.gradient-button {
+  background: linear-gradient(to right, #C315D6, #FC0339, #FC0339,#FC0339);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}

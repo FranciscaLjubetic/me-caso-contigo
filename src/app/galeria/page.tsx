@@ -180,14 +180,14 @@ export default function GaleriaPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button
               href="/agendar"
-              variant="primary"
+              variant="solid"
               size="lg"
             >
               Cotiza Ya!
             </Button>
             <Button
               href="/fechas-disponibles"
-              variant="secondary"
+              variant="outlined"
               size="lg"
             >
               Ver Fechas Disponibles

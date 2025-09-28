@@ -39,7 +39,7 @@ export default function ServiciosPage() {
   return (
     <div className="min-h-screen bg-gray-50 pt-0">
       {/* Hero Section */}
-    <section className="bg-gradient-to-br from-[#ff6b81] to-purple-600 text-white py-20">
+    <section className="gradient-bg text-white py-20">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <h1 className="text-5xl font-bold mb-6">
         Nuestros Servicios
@@ -95,7 +95,7 @@ export default function ServiciosPage() {
                     <span className="text-xl font-bold text-pink-600">{service.price}</span>
                     <Button 
                       href="/agendar"
-                      variant="primary"
+                      variant="solid"
                       size="sm"
                     >
                       Consultar
@@ -155,7 +155,7 @@ export default function ServiciosPage() {
       </section>
 
       {/* CTA Final */}
-      <section className="py-20 bg-gradient-to-br from-[#ff6b81] to-purple-600 text-white">
+      <section className="py-20 gradient-bg text-white">
         <div className="max-w-4xl mx-auto text-center px-4 sm:px-6 lg:px-8">
           <h2 className="text-4xl font-bold mb-6">
             ¿Listo para planificar tu evento soñado?
@@ -166,14 +166,14 @@ export default function ServiciosPage() {
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button 
               href="/agendar"
-              variant="secondary"
+              variant="outlined"
               size="lg"
             >
               Cotiza con nosotros
             </Button>
             <Button 
               href="/galeria"
-              variant="secondary"
+              variant="outlined"
               size="lg"
             >
               Ver Galería

@@ -47,7 +47,7 @@ export default function Navbar() {
               </Link>
               <Button
                 href="/agendar"
-                variant="secondary"
+                variant="solid"
                 size="sm"
               >
                 Cotiza ya!
@@ -98,7 +98,7 @@ export default function Navbar() {
               </Link>
               <Button
                 href="/agendar"
-                variant="secondary"
+                variant="solid"
                 size="md"
                 onClick={() => setIsOpen(false)}
                 className="block text-center"

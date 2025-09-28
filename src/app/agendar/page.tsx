@@ -21,12 +21,11 @@ export default function AgendarPage() {
 
   
   const modalidades = [
-    { value: 'tradicional-liviana', label: 'Tradicional - Liviano' },
-    { value: 'tradicional-equilibrada', label: 'Tradicional - Equilibrado' },
-    { value: 'tradicional-peso-pesado', label: 'Tradicional - Peso Pesado' },
-    { value: 'coctel-liviana', label: 'Cóctel - Liviano' },
-    { value: 'coctel-equilibrada-mar', label: 'Cóctel - Equilibrado del Mar' },
-    { value: 'coctel-peso-pesado', label: 'Cóctel - Peso Pesado' }
+    { value: 'matrimonio tradicional con coctel, cena y fiesta', label: 'matrimonio tradicional con coctel, cena y fiesta' },
+    { value: 'matrimonio de coctel relajado con fiesta', label: 'matrimonio de coctel relajado con fiesta' },
+    { value: 'matrimonio asado buffet mas fiesta', label: 'matrimonio asado buffet mas fiesta' },
+    { value: 'evento corporativo', label: 'evento corporativo' },
+    { value: 'otros', label: 'otros' },
   ]
 
   // Configurar fechas disponibles (lunes a viernes, sin fines de semana)
@@ -182,11 +181,16 @@ export default function AgendarPage() {
                   <select
                     value={formData.eventType}
                     onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
-                    className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    style={{ fontSize: '0.5 rem' }} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
                   >
                     <option value="">Selecciona tipo de Evento</option>
                     {modalidades.map((m) => (
-                      <option key={m.value} value={m.value}>
+                      <option
+                        key={m.value}
+                        value={m.value}
+                        className="text-sm"
+                        
+                      >
                         {m.label}
                       </option>
                     ))}
@@ -222,7 +226,7 @@ export default function AgendarPage() {
                 <Button
                   type="submit"
                   disabled={!selectedDate || !selectedTime || !formData.name || !formData.email || !formData.phone}
-                  variant="primary"
+                  variant="solid"
                   size="lg"
                   className="w-full"
                 >
