@@ -2,9 +2,9 @@ import { google } from 'googleapis'
 import { NextRequest, NextResponse } from 'next/server'
 
 // Configuración de Google Sheets
-const SPREADSHEET_ID = process.env.GOOGLE_SHEETS_SPREADSHEET_ID!
-const CLIENT_EMAIL = process.env.GOOGLE_SHEETS_CLIENT_EMAIL!
-const PRIVATE_KEY = process.env.GOOGLE_SHEETS_PRIVATE_KEY!.replace(/\\n/g, '\n')
+const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID!
+const CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_CLIENT_EMAIL!
+const PRIVATE_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_PRIVATE_KEY!.replace(/\\n/g, '\n')
 
 // Autenticación con Google Sheets API
 const auth = new google.auth.GoogleAuth({

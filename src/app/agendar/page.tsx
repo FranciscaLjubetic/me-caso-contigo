@@ -503,9 +503,8 @@ export default function AgendarPage() {
                   <div className="bg-red-50 border border-red-200 rounded-lg p-4 mb-4">
                     <div className="flex items-center">
                       <AlertTriangle className="h-5 w-5 text-red-500 mr-2" />
-                      <span className="text-red-800 font-medium">Error al enviar la reserva</span>
+                      <span className="text-red-800 font-medium">{submitError}</span>
                     </div>
-                    <p className="text-red-700 mt-1">{submitError}</p>
                   </div>
                 )}
 
