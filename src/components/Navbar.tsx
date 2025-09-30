@@ -39,12 +39,6 @@ export default function Navbar() {
               >
                 Galería
               </Link>
-              <Link
-                href="/fechas-disponibles"
-                className="text-white hover:text-gray-300 px-3 py-2 rounded-full text-sm font-medium transition-colors"
-              >
-                Fechas Disponibles
-              </Link>
               <Button
                 href="/agendar"
                 variant="solid"
@@ -88,13 +82,6 @@ export default function Navbar() {
                 onClick={() => setIsOpen(false)}
               >
                 Galería
-              </Link>
-              <Link
-                href="/fechas-disponibles"
-                className="text-white hover:text-gray-300 block px-3 py-2 rounded-full text-base font-medium"
-                onClick={() => setIsOpen(false)}
-              >
-                Fechas Disponibles
               </Link>
               <Button
                 href="/agendar"

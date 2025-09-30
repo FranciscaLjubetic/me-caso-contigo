@@ -1,40 +1,11 @@
 "use client"
 
-import { useMemo, useState } from 'react'
 import Image from 'next/image'
 import { Heart, Users, Calendar, Star } from 'lucide-react'
 import { services } from '@/lib/services-data'
-import { SERVICE_PACKAGES } from '@/lib/service-packages'
 import Button from '@/components/Button'
 
 export default function ServiciosPage() {
-
-  const [activePriceId, setActivePriceId] = useState<string | null>(null)
-
-  const UF_REFERENCE_VALUE = 37000
-
-  const detailKeysByCategory = useMemo(() => {
-    return SERVICE_PACKAGES.reduce<Record<string, string[]>>((acc, category) => {
-      const uniqueKeys = new Set<string>()
-      category.options.forEach((option) => {
-        Object.keys(option.details).forEach((key) => uniqueKeys.add(key))
-      })
-      acc[category.id] = Array.from(uniqueKeys)
-      return acc
-    }, {})
-  }, [])
-
-  const togglePrice = (id: string) => {
-    setActivePriceId((current) => (current === id ? null : id))
-  }
-
-  const getPriceInUF = (priceCLPPerGuest: number, guests: number) => {
-    const totalCLP = priceCLPPerGuest * guests
-    return totalCLP / UF_REFERENCE_VALUE
-  }
-
-  const formatUF = (value: number) =>
-    value.toLocaleString('es-CL', { minimumFractionDigits: 2, maximumFractionDigits: 2 })
 
   return (
     <div className="min-h-screen bg-gray-50 pt-0">
@@ -66,7 +37,7 @@ export default function ServiciosPage() {
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {services.map((service, index) => (
-              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow">
+              <div key={index} className="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow flex flex-col h-full">
                 <div className="aspect-video relative">
                   <Image
                     src={service.image}
@@ -77,21 +48,21 @@ export default function ServiciosPage() {
                     priority={index < 2}
                   />
                 </div>
-                <div className="p-6">
+                <div className="p-6 flex flex-col flex-1">
                   <div className="flex items-center mb-4">
                     <service.icon className="h-8 w-8 text-pink-500 mr-3" />
                     <h3 className="text-2xl font-semibold">{service.title}</h3>
                   </div>
                   <p className="text-gray-600 mb-4">{service.description}</p>
-                  <ul className="space-y-2 mb-6">
+                  <ul className="space-y-2 mb-6 flex-1">
                     {service.features.map((feature, idx) => (
-                      <li key={idx} className="flex items-center text-sm text-gray-700">
-                        <span className="w-2 h-2 bg-pink-500 rounded-full mr-3"></span>
-                        {feature}
-                      </li>
+                      <li key={idx} className="flex items-start text-sm text-gray-700">
+                          <span className="w-2 h-2 bg-pink-500 rounded-full mr-3 flex-shrink-0 mt-1"></span>
+                          <span className="ml-1 flex-1 break-words">{feature}</span>
+                        </li>
                     ))}
                   </ul>
-                  <div className="flex justify-between items-center">
+                  <div className="flex justify-between items-center mt-auto">
                     <span className="text-xl font-bold text-pink-600">{service.price}</span>
                     <Button 
                       href="/agendar"

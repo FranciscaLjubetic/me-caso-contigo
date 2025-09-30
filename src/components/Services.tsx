@@ -1,4 +1,4 @@
-import { Heart, Utensils, Music } from 'lucide-react'
+import { Heart, Utensils, Music, Briefcase, Users, PartyPopper } from 'lucide-react'
 
 export default function Services() {
   const services = [
@@ -19,6 +19,24 @@ export default function Services() {
       title: 'Entretenimiento',
       description: 'Música e Ambientación para darle a tus invitados toda una experiencia.',
       features: ['DJ', 'iluminación', 'Ambientación', 'Pista de baile']
+    },
+    {
+      icon: Briefcase,
+      title: 'Eventos Empresariales',
+      description: 'Desde reuniones informales hasta recepciones corporativas, organizamos eventos que fortalecen tus lazos profesionales.',
+      features: []
+    },
+    {
+      icon: Users,
+      title: 'Celebraciones Familiares',
+      description: 'Haz que tus momentos familiares sean inolvidables con fiestas personalizadas para cada ocasión especial.',
+      features: []
+    },
+    {
+      icon: PartyPopper,
+      title: 'Eventos Sociales y de Ocio',
+      description: 'Disfruta de fiestas vibrantes, despedidas emocionantes y encuentros casuales con el mejor entretenimiento.',
+      features: []
     }
   ]
 

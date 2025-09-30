@@ -38,14 +38,18 @@ export const services: Service[] = [
   {
     icon: Utensils,
     title: 'Servicios Gastronómicos',
-    description: 'Experiencias culinarias excepcionales que incluyen desde barra libre premium hasta cordero al palo y especialidades marinas.',
+    description: 'Experiencias culinarias excepcionales.',
     features: [
-      'Barra completa (pisco sour, mango sour, pisco, ron, vodka, gin, ramazotti, energéticas, cervezas)',
+      'Barra completa y cocktails preparados (pisco, ron, vodka, gin, ramazotti, pisco sour, mango sour, cervezas, vinos, espumantes)',
+      'Barra de exquisitos postres preparados con ingredientes de calidad y opciones especiales, sin azucar, celíacos, etc.',
       'Cordero al palo',
+      'Asado buffet con opciones gourmet',
+      'Tablas de queso, encurtidos y frutos secos en formato puerta',
       'Tabla de mariscos en hielo',
-
-      'Consomé de trasnoche',
-      'Tortas personalizables'
+      'Tortas personalizables',
+      'Bollería, chocolatería y galletas finas',
+      'Café y té de especialidad',
+      'Menús personalizados según tus gustos y necesidades',
     ],
     price: '',
     image: 'https://images.unsplash.com/photo-1414235077428-338989a2e8c0?w=600&q=80'

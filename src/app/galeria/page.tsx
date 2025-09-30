@@ -189,6 +189,7 @@ export default function GaleriaPage() {
               href="/fechas-disponibles"
               variant="outlined"
               size="lg"
+              className="!text-[#1f2937] hover:!text-white"
             >
               Ver Fechas Disponibles
             </Button>
