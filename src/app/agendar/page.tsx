@@ -23,7 +23,7 @@ interface BookedDateCSV {
 }
 
 // Estados de las fechas
-type DateStatus = 'available' | 'cotizar' | 'muy-demandada' | 'ocupada'
+type DateStatus = 'available' | 'cotizar' | 'muy-cotizada' | 'ocupada'
 
 interface DateInfo {
   status: DateStatus
@@ -128,7 +128,7 @@ export default function AgendarPage() {
     }
 
     if (cotizarCount > 1) {
-      return { status: 'muy-demandada', bookings: bookingsForDate }
+      return { status: 'muy-cotizada', bookings: bookingsForDate }
     }
 
     return { status: 'cotizar', bookings: bookingsForDate }
@@ -139,7 +139,7 @@ export default function AgendarPage() {
     switch (status) {
       case 'ocupada':
         return 'bg-red-100 border-red-300 text-red-800'
-      case 'muy-demandada':
+      case 'muy-cotizada':
         return 'bg-yellow-100 border-yellow-300 text-yellow-800'
       case 'cotizar':
         return 'bg-green-100 border-green-300 text-green-800'
@@ -153,8 +153,8 @@ export default function AgendarPage() {
     switch (status) {
       case 'ocupada':
         return 'Ocupada'
-      case 'muy-demandada':
-        return 'Muy demandada'
+      case 'muy-cotizada':
+        return 'Muy cotizada'
       case 'cotizar':
         return 'Cotizando'
       default:
@@ -336,7 +336,7 @@ export default function AgendarPage() {
                       >
                         <div className="font-medium">{format(day, 'd')}</div>
                         {dateInfo.status !== 'available' && (
-                          <div className="text-xs mt-1">
+                          <div className="text-xs mt-1 hidden sm:block">
                             {getStatusText(dateInfo.status)}
                           </div>
                         )}
@@ -353,7 +353,7 @@ export default function AgendarPage() {
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-yellow-100 border border-yellow-300 rounded mr-2"></div>
-                    Muy demandada
+                    Muy cotizada
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-green-100 border border-green-300 rounded mr-2"></div>
@@ -609,9 +609,9 @@ export default function AgendarPage() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white">Muy demandadas</span>
+                  <span className="text-white">Muy cotizadas</span>
                   <span className="font-semibold text-white">
-                    {monthDays.filter(day => getDateInfo(day).status === 'muy-demandada').length}
+                    {monthDays.filter(day => getDateInfo(day).status === 'muy-cotizada').length}
                   </span>
                 </div>
                 <div className="flex justify-between">
