@@ -47,12 +47,15 @@ export default function AgendarPage() {
   const [submitError, setSubmitError] = useState<string | null>(null)
   const [submitSuccess, setSubmitSuccess] = useState(false)
 
-  // Efecto para recargar la página después de 10 segundos cuando hay éxito
+  // Efecto para recargar los datos del calendario después de 5 segundos cuando hay éxito
   useEffect(() => {
     if (submitSuccess) {
       const timer = setTimeout(() => {
-        window.location.reload()
-      }, 10000) // 10 segundos
+        // Recargar datos del calendario para mostrar la nueva fecha cotizada
+        loadBookedDates()
+        // Ocultar el mensaje de éxito
+        setSubmitSuccess(false)
+      }, 5000) // 5 segundos
 
       return () => clearTimeout(timer)
     }
@@ -156,7 +159,7 @@ export default function AgendarPage() {
       case 'muy-cotizada':
         return 'Muy cotizada'
       case 'cotizar':
-        return 'Cotizando'
+        return 'Cotizada'
       default:
         return ''
     }
@@ -199,7 +202,7 @@ export default function AgendarPage() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
-    if (!selectedDate || !selectedTime || !formData.name || !formData.email || !formData.phone) {
+    if (!selectedDate || !selectedTime || !formData.name || !formData.email || !formData.phone || !formData.eventType) {
       alert('Por favor completa todos los campos requeridos')
       return
     }
@@ -209,7 +212,13 @@ export default function AgendarPage() {
     setSubmitSuccess(false)
 
     try {
+      // Generar ID único con datetime exacto del submit en zona horaria de Chile
+      const now = new Date()
+      const chileTime = new Date(now.getTime() - (4 * 60 * 60 * 1000)) // UTC-4 para Chile
+      const submitDatetime = format(chileTime, 'yyyy-MM-dd HH:mm:ss')
+      
       const bookingData = {
+        id: submitDatetime,
         date: format(selectedDate, 'yyyy-MM-dd'),
         time: selectedTime,
         name: formData.name,
@@ -265,10 +274,10 @@ export default function AgendarPage() {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="text-center mb-12">
           <h1 className="text-4xl font-bold text-gray-800 mb-4">
-            Asegura tu fecha
+            Cotiza ahora
           </h1>
           <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-            Déjanos tu contacto y los datos generales del evento y nos pondremos en contacto contigo a la brevedad.
+            Asegura tu fecha. Déjanos tu contacto y los datos generales del evento y nos pondremos en contacto contigo a la brevedad.
           </p>
         </div>
 
@@ -357,7 +366,7 @@ export default function AgendarPage() {
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-green-100 border border-green-300 rounded mr-2"></div>
-                    Cotizando
+                    Cotizada
                   </div>
                   <div className="flex items-center">
                     <div className="w-4 h-4 bg-gray-50 border border-gray-200 rounded mr-2"></div>
@@ -464,12 +473,13 @@ export default function AgendarPage() {
 
                 <div>
                   <label className="block text-sm font-medium text-gray-700 mb-1">
-                    Formato del evento
+                    Formato del evento *
                   </label>
                   <select
                     value={formData.eventType}
                     onChange={(e) => setFormData({ ...formData, eventType: e.target.value })}
                     style={{ fontSize: '0.5 rem' }} className="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-pink-500 focus:border-transparent"
+                    required
                   >
                     <option value="">Selecciona tipo de Evento</option>
                     {modalidades.map((m) => (
@@ -531,7 +541,7 @@ export default function AgendarPage() {
 
                 <Button
                   type="submit"
-                  disabled={!selectedDate || !selectedTime || !formData.name || !formData.email || !formData.phone || isSubmitting}
+                  disabled={!selectedDate || !selectedTime || !formData.name || !formData.email || !formData.phone || !formData.eventType || isSubmitting}
                   variant="solid"
                   size="lg"
                   className="w-full"
@@ -614,7 +624,7 @@ export default function AgendarPage() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-white">Cotizando</span>
+                  <span className="text-white">Cotizada</span>
                   <span className="font-semibold text-white">
                     {monthDays.filter(day => getDateInfo(day).status === 'cotizar').length}
                   </span>

@@ -182,16 +182,9 @@ export default function GaleriaPage() {
               href="/agendar"
               variant="solid"
               size="lg"
+              className="!min-w-[200px]"
             >
               Cotiza Ya!
-            </Button>
-            <Button
-              href="/fechas-disponibles"
-              variant="outlined"
-              size="lg"
-              className="!text-[#1f2937] hover:!text-white"
-            >
-              Ver Fechas Disponibles
             </Button>
           </div>
         </div>

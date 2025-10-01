@@ -30,6 +30,7 @@ const auth = new google.auth.GoogleAuth({
 const sheets = google.sheets({ version: 'v4', auth })
 
 interface BookingData {
+  id: string
   date: string
   time: string
   name: string
@@ -126,8 +127,8 @@ export async function POST(request: NextRequest) {
       )
     }
 
-    // Generar ID único
-    const id = Date.now().toString()
+    // Usar ID enviado desde el frontend (datetime exacto del submit)
+    const id = body.id
 
     // Preparar fila para insertar
     const row = [

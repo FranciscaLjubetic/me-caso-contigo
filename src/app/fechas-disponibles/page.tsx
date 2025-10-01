@@ -144,7 +144,7 @@ export default function FechasDisponiblesPage() {
       case 'muy-demandada':
         return 'Muy demandada'
       case 'cotizar':
-        return 'Cotizando'
+        return 'Cotizada'
       default:
         return ''
     }
@@ -267,7 +267,7 @@ export default function FechasDisponiblesPage() {
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-green-100 border border-green-300 rounded mr-2"></div>
-                  Cotizando
+                  Cotizada
                 </div>
                 <div className="flex items-center">
                   <div className="w-4 h-4 bg-gray-50 border border-gray-200 rounded mr-2"></div>
@@ -365,7 +365,7 @@ export default function FechasDisponiblesPage() {
                   </span>
                 </div>
                 <div className="flex justify-between">
-                  <span className="text-gray-600">Cotizando</span>
+                  <span className="text-gray-600">Cotizada</span>
                   <span className="font-semibold text-green-600">
                     {monthDays.filter(day => getDateInfo(day).status === 'cotizar').length}
                   </span>
