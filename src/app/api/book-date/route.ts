@@ -4,7 +4,19 @@ import { NextRequest, NextResponse } from 'next/server'
 // Configuración de Google Sheets
 const SPREADSHEET_ID = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_SPREADSHEET_ID!
 const CLIENT_EMAIL = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_CLIENT_EMAIL!
-const PRIVATE_KEY = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_PRIVATE_KEY!.replace(/\\n/g, '\n')
+
+// Procesar la clave privada para manejar diferentes formatos
+let privateKey = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_PRIVATE_KEY!
+
+// Remover comillas si las tiene
+if (privateKey.startsWith('"') && privateKey.endsWith('"')) {
+  privateKey = privateKey.slice(1, -1)
+}
+
+// Convertir \n literales a saltos de línea reales
+privateKey = privateKey.replace(/\\n/g, '\n')
+
+const PRIVATE_KEY = privateKey
 
 // Autenticación con Google Sheets API
 const auth = new google.auth.GoogleAuth({
